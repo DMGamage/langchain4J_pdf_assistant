@@ -21,8 +21,8 @@ public class PdfAssistantConfig {
 
     @Bean
     public AstraDbEmbeddingStore astraDbEmbeddingStore() {
-        String astraToken = "AstraCS:xRFjTYTDQWuYbjSxdmlyvPhe:aff57672595980f3972f45dcd8cbb8906015a28c285af01ac0229431365f9eb3";
-        String databaseId = "6afb12d4-69de-4458-a823-e35cfb9e16de";
+        String astraToken = "token";
+        String databaseId = "id";
 
         return new AstraDbEmbeddingStore(AstraDbEmbeddingConfiguration
                 .builder()
@@ -47,7 +47,7 @@ public class PdfAssistantConfig {
     @Bean
     public ConversationalRetrievalChain conversationalRetrievalChain() {
         return ConversationalRetrievalChain.builder()
-                .chatLanguageModel(OpenAiChatModel.withApiKey("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"))
+                .chatLanguageModel(OpenAiChatModel.withApiKey("token"))
                 .retriever(EmbeddingStoreRetriever.from(astraDbEmbeddingStore(), embeddingModel()))
                 .build();
     }
